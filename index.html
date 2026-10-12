@@ -15,16 +15,32 @@
     </head>
 
     <body>
-        <nav>
+        <nav id="navbar">
             <div class="logo">◍ Godswill Oliver</div>
             <div class="links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
-                <a href="#skills">Skills</a><a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
-            <a class="cta" href="#contact">Let's connect →</a>
+            <div class="nav-right">
+                <a class="cta" href="#contact">Let's connect →</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a class="mobile-cta" href="#contact">Let's connect →</a>
+        </div>
+        <div class="menu-overlay" id="menuOverlay"></div>
 
         <section class="container hero" id="home">
             <div>
