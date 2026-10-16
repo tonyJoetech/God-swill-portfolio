@@ -1,58 +1,21 @@
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const overlay = document.getElementById('menuOverlay');
 
-function toggleMenu() {
-    const isOpen = mobileMenu.classList.contains('open');
-    if (isOpen) {
-        closeMenu();
-    } else {
-        openMenu();
-    }
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
 
-function openMenu() {
-    mobileMenu.classList.add('open');
-    overlay.classList.add('open');
-    hamburger.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+  toggle.addEventListener('click', function() {
+    toggle.classList.toggle('active');
+    links.classList.toggle('active');
+  });
 
-function closeMenu() {
-    mobileMenu.classList.remove('open');
-    overlay.classList.remove('open');
-    hamburger.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-hamburger.addEventListener('click', toggleMenu);
-overlay.addEventListener('click', closeMenu);
-
-// Close when clicking link
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-});
-
-// Close on scroll or resize
-window.addEventListener('resize', () => {
-    if (window.innerWidth >= 900) closeMenu();
-});
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
-            closeMenu();
-        }
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      toggle.classList.remove('active');
+      links.classList.remove('active');
     });
-});
+  });
+}); document.getElementById('mobileMenu').classList.toggle('open')
 
-function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open')
-}
 function sendMsg() {
     const n = document.getElementById('name').value, e = document.getElementById('email').value, m = document.getElementById('message').value; if (!n || !e || !m) {
         document.getElementById('formStatus').textContent = 'Fill name, email, message'; return
